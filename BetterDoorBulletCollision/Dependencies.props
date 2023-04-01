@@ -5,7 +5,6 @@
 		<Error Text="The GameFolder property must be set to the GTFO game folder." Condition="'$(GameFolder)' == '' or !Exists('$(GameFolder)')" />
 	</Target>
 
-	<!-- Path Info -->
 	<PropertyGroup>
 		<BIELibsFolder>$(GameFolder)\BepInEx\core</BIELibsFolder>
 		<CorLibsFolder>$(GameFolder)\dotnet</CorLibsFolder>
@@ -33,18 +32,18 @@
 		<Reference Remove="$(CorLibsFolder)\*Native*.dll" />
 		<Reference Remove="$(CorLibsFolder)\clr*.dll" />
 		<Reference Remove="$(CorLibsFolder)\mscord*.dll" />
+		<Reference Remove="$(CorLibsFolder)\jitinterface_x64.dll" />
 	</ItemGroup>
-
 	<!-- Interop -->
 	<ItemGroup>
-		<Reference Include="$(InteropLibsFolder)\*.dll" Private="false" />
-		<Reference Remove="$(InteropLibsFolder)\netstandard.dll" />
-		<Reference Remove="$(InteropLibsFolder)\Newtonsoft.Json.dll" />
+		<Reference Include="$(InteropLibsFolder)/*.dll" Private="false" />
+		<Reference Remove="$(InteropLibsFolder)/netstandard.dll" />
+		<Reference Remove="$(InteropLibsFolder)/Newtonsoft.Json.dll" />
 	</ItemGroup>
 
-	<!-- Plugin Dependencies -->
+	<!-- Other Dependencies -->
 	<ItemGroup>
-		<Reference Include="$(PluginsFolder)\GTFO-API.dll" Private="false" />
+		<Reference Include="$(PluginsFolder)/GTFO-API.dll" Private="false" />
 	</ItemGroup>
 
 	<!-- NuGet Packages -->
